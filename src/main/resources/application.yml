@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: zip-code-engine
+
+kafka:
+  consumer:
+    bootstrap-servers: localhost:9092
+    topic:
+      raw:
+        zip-code: topic-raw-zip-code
+        group-id: sample-group-id
+  producer:
+    bootstrap-servers: localhost:9092
+    client-id: sample-client-id
+    topic: topic-zip-code
+    error-topic: error-topic
