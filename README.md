@@ -1,8 +1,8 @@
 # zip-code-engine
 
 - This is a Spring-Boot application responsible to consume zip-code ranges(raw) from a kafka topic and merge overlapping ranges in a given kafka message.
-- The merged zip-code(transformed) to then written to a different kafka topic.
-- If transformation fails an ever event is generated to an error-topic 
+- The merged zip-code ranges(transformed) are then written to a different kafka topic.
+- If transformation fails an error event is generated to an error-topic.
 
 # Execution instructions
 - Use the application.yml.sample to override the required properties and paste the file back to resources directory as application.yml
