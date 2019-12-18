@@ -34,7 +34,7 @@ public class ErrorHandler {
 
     private Optional<byte[]> toBytes(Object o) {
         try {
-            return Optional.of(this.objectMapper.writer().writeValueAsBytes(o));
+            return Optional.of(this.objectMapper.writeValueAsBytes(o));
         } catch (Exception e) {
             log.error("ERROR converting object to bytes, message: {}", o, e);
             return Optional.empty();

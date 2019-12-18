@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: zip-code-engine
+
+kafka:
+  consumer:
+    bootstrap-servers: <source-kafka server>:<port>
+    topic:
+      raw:
+        zip-code: <raw-zip-code-topic>
+        group-id: <consumer group id>
+  producer:
+    bootstrap-servers: <destination-kafka server>:<port>
+    client-id: <producer-client-id>
+    topic: <transformed-zip-code-topic>
+    error-topic: <error-topic>

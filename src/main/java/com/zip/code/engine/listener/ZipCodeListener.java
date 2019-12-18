@@ -30,7 +30,8 @@ public class ZipCodeListener {
     public void listen(byte[] bytes) {
         try {
             if (Objects.nonNull(bytes)) {
-                this.toZipCodeMessage(bytes).ifPresent(zipCodeProcessor::process);
+                this.toZipCodeMessage(bytes)
+                        .ifPresent(zipCodeProcessor::process);
             }
         } catch (Exception exp) {
             this.errorHandler.handleError(

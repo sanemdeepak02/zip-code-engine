@@ -3,9 +3,11 @@ package com.zip.code.engine.transformer;
 import com.zip.code.engine.domain.ZipCodeMessage;
 import com.zip.code.engine.domain.ZipCodeRange;
 import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by sanemdeepak on 12/15/19.
@@ -23,14 +25,11 @@ public class ZipCodeTransformer implements Transformer<ZipCodeMessage, ZipCodeMe
     }
 
     private List<ZipCodeRange> mergeOverlapping(List<ZipCodeRange> zipCodeRanges) {
-        final Comparator<ZipCodeRange> startValueComparator = Comparator.comparingInt(ZipCodeRange::getStart);
-
-        if (CollectionUtils.isEmpty(zipCodeRanges)) {
-            return Collections.emptyList();
-        }
         if (zipCodeRanges.size() < 2) {
             return zipCodeRanges;
         }
+
+        final Comparator<ZipCodeRange> startValueComparator = Comparator.comparingInt(ZipCodeRange::getStart);
 
         zipCodeRanges.sort(startValueComparator);
 

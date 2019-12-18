@@ -34,7 +34,7 @@ public class ZipCodeProcessor {
 
     private Optional<byte[]> toBytes(ZipCodeMessage zipCodeMessage) {
         try {
-            return Optional.ofNullable(this.objectMapper.writer().writeValueAsBytes(zipCodeMessage));
+            return Optional.ofNullable(this.objectMapper.writeValueAsBytes(zipCodeMessage));
         } catch (Exception e) {
             log.error("ERROR converting zipCodeMessage to bytes, message: {}", zipCodeMessage, e);
             return Optional.empty();
